@@ -1,0 +1,29 @@
+.button{
+    font-family: var(--font-primary);
+    background-color: var(--color-primary);
+    color: var(--color-gray-000);
+    height: 3rem;
+    width: 8.35rem;
+    border-radius: 0.25rem;
+    border: none;
+&.sm{
+    height: 2.5rem;
+    width: 7rem;
+}
+ &:hover{
+background-color:var(--color-primary-focus);
+}
+
+&.negative{
+     background-color: var(--color-primary-negative);
+ }
+
+&.disable{
+     background-color: var(--color-gray-100);
+}
+ &.disable:hover{
+    background-color:var(--color-gray-200);
+ }
+
+
+}
