@@ -1,4 +1,16 @@
-.input{
-    background-color:var(--color-gray-200) ;
-    color:var(--color-gray-100) ;
+.input {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-100);
+  border: none;
+  border-radius: 0.25rem; 
+  height: 3rem;
+  width: 100%;
+  padding:1rem ;
+  margin-block: 0.5rem;
+
+  &:focus-visible {
+    
+    color: var(--color-gray-000);
+    outline: 1.2px solid var(--color-gray-000);;
+  }
 }

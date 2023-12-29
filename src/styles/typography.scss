@@ -4,6 +4,7 @@ font-family: var(--font-primary);
 font-size: 1.125rem;
 font-weight: 700;
 line-height: 1.75rem; /* 155.556% */
+text-align: center;
 }
 
 .label{
@@ -19,12 +20,24 @@ font-family: var(--font-primary);
 font-size: 0.75rem;
 font-weight: 600;
 line-height: 1.125rem; /* 150% */
-&white {
+&.white {
     color: var(--color-gray-000);
     font-size: 1rem;
     font-weight: 400;
 }
 
+&.central{
+text-align: center;
 }
 
+
+}
+
+.helper-text{
+color: var(--color-gray-100);
+font-family: var(--font-primary);
+font-size: 0.65rem;
+font-weight: 400;
+
+}
 

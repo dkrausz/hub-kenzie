@@ -2,3 +2,12 @@
 @import url(./global.scss);
 @import url(./typography.scss);
 @import url(./button.scss);
+@import url(./input.scss);
+
+
+
+body{
+    background-color: var(--color-gray-400);
+    max-width: 90rem;
+    margin: auto;
+}

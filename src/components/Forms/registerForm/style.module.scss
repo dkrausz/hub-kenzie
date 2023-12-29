@@ -1,0 +1,15 @@
+@import url(../../../styles/index.scss);
+
+.form__button{
+    margin-top: 1rem;
+}
+
+.form__container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--color-gray-300);
+    border-radius: 0.25rem;
+    padding: 1.4rem;
+   
+}
