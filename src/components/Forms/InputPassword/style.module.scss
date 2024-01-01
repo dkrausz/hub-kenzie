@@ -1,0 +1,44 @@
+@import url(../../../styles/index.scss);
+
+.input__password {
+  &:hover {
+    border: none;
+    outline: none;
+  }
+}
+
+.password__container {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-100);
+  border: none;
+  border-radius: 0.25rem;
+  height: 3rem;
+  width: 100%;
+  padding: 1rem;
+  margin-block: 1.4rem;
+  position: relative;
+  &:hover {
+    outline: 1.2px solid var(--color-gray-000);
+    color: var(--color-gray-000);
+  }
+}
+
+.input__password{
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-100);
+    border: none;
+    border-radius: 0.25rem; 
+    height: 100%;   
+    width: 90%;
+    
+    &:focus-visible{
+        outline: none;
+        color: var(--color-gray-000);
+    }    
+
+}
+
+.hidden__btn{
+    position: absolute;
+    right: 1rem;
+}

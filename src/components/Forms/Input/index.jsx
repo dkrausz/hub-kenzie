@@ -1,11 +1,13 @@
+import { forwardRef } from "react";
 import "../../../styles/index.scss"
 
-export const Input = ({ label, ...rest }) => {    
+export const Input = forwardRef(({ label,error, ...rest },ref) => {    
     const {id}=rest; 
      return (
     <div>
       <label htmlFor={id} className="label">{label}</label>
-            <input {...rest} className="input"/>
+            <input ref={ref} {...rest} className="input"/>
+            {error? <p className="helper-text">{error.message}</p> :null}
     </div>
   );
-};
+});

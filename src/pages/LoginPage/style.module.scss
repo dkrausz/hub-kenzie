@@ -3,23 +3,15 @@
 .container{
     width: 23rem;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 
 }
-.container>img{
-
-   
-        width: 9rem;
-        height: 1.25rem;
+.container>img{ 
+        
+        margin-inline: auto;
+        margin-block: 2.3rem;
     }
 
 
-.form__container{
-    background-color: var(--color-gray-300);
-    display: flex;
-    flex-direction: column;
-    gap: 1.38rem;
-    border-radius: 0.25rem;
-    padding-inline: 1.38rem;
-    padding-block: 2.62rem;
-}
 

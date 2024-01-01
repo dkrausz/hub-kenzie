@@ -1,12 +1,13 @@
 import { RoutesMain } from "./routes/RoutesMain"
-import "./styles/index.scss"
+// import "./styles/index.scss"
 
 
-function App() {
+const App=()=> {
 
 
   return (
     <>
+   
    <RoutesMain/>
     </>
   )
