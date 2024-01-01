@@ -12,6 +12,10 @@
   &:focus-visible {
     
     color: var(--color-gray-000);
-    outline: 1.2px solid var(--color-gray-000);;
+    outline: 1.2px solid var(--color-gray-000);
+  }
+
+  &:hover{
+    outline: 1.2px solid var(--color-gray-000);
   }
 }

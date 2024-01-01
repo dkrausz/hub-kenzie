@@ -4,22 +4,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
 import { InputSelect } from "../InputSelect";
 import { registerFormSchema } from "./registerForm.schema";
+import { InputPassword } from "../InputPassword";
 
 export const RegisterForm = () => {
-  const { register, handleSubmit, formState:{errors} } = useForm(
-    {
-      resolver: zodResolver(registerFormSchema),
-    }
-  );
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(registerFormSchema),
+  });
 
   const onSubmit = (e) => {
     console.log(e);
   };
-console.log(errors);
+  
   return (
     <form className={styles.form__container} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Crie sua conta</h2>
-      <p className={`${styles.paragraph} ${styles.central}`}>Rapido e grátis, vamos nessa</p>
+      <p className={`${styles.paragraph} ${styles.central}`}>
+        Rapido e grátis, vamos nessa
+      </p>
 
       <Input
         label={"Nome"}
@@ -39,22 +44,19 @@ console.log(errors);
         placeholder="Digite aqui seu email"
       />
 
-      <Input
+      <InputPassword
         label={"Senha"}
         id={"password"}
-        {...register("password")}
-        type={"password"}
         error={errors.password}
-        placeholder="Digite aqui sua senha"
+        placeholder={"Digite sua senha"}
+        {...register("password")}
       />
-
-      <Input
+      <InputPassword
         label={"Confirmar Senha"}
         id={"confirmPassword"}
-        {...register("confirmPassword")}
-        type={"password"}
         error={errors.confirmPassword}
-        placeholder="Digite novamente sua senha"
+        placeholder={"Digite novamente sua senha"}
+        {...register("confirmPassword")}
       />
 
       <Input
@@ -80,14 +82,9 @@ console.log(errors);
         id={"course_module"}
         error={errors.course_module}
         {...register("course_module")}
-     
       />
-     
 
-      <button
-        type="submit"
-        className={`${styles.buttonNegative}`}
-      >
+      <button type="submit" className={`${styles.buttonNegative}`}>
         Cadastrar
       </button>
     </form>
