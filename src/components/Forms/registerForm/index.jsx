@@ -1,12 +1,16 @@
-import styles from "../registerForm/style.module.scss";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
 import { InputSelect } from "../InputSelect";
 import { registerFormSchema } from "./registerForm.schema";
 import { InputPassword } from "../InputPassword";
+import { api } from "../../../services/API";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const RegisterForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,14 +19,26 @@ export const RegisterForm = () => {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const onSubmit = (e) => {
-    console.log(e);
+  const onSubmit = (userData) => {   
+    userRegister(userData);
+
   };
   
+const userRegister = async (userData)=>{
+  try{
+    const {data} = await api.post("/users",userData);    
+    toast.success("Conta criada com sucesso!",{autoClose:1500})
+    setTimeout(()=>navigate("/"),2000);
+  }catch(error){
+    toast.error("Ops!, Algo deu errado",{autoClose:3000});    
+  }
+
+}
+
   return (
-    <form className={styles.form__container} onSubmit={handleSubmit(onSubmit)}>
-      <h2 className={styles.title}>Crie sua conta</h2>
-      <p className={`${styles.paragraph} ${styles.central}`}>
+    <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
+      <h2 className="title">Crie sua conta</h2>
+      <p className="paragraph central">
         Rapido e grátis, vamos nessa
       </p>
 
@@ -84,7 +100,7 @@ export const RegisterForm = () => {
         {...register("course_module")}
       />
 
-      <button type="submit" className={`${styles.buttonNegative}`}>
+      <button type="submit" className="buttonNegative">
         Cadastrar
       </button>
     </form>

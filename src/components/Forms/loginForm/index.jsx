@@ -1,23 +1,47 @@
-import { Link } from "react-router-dom";
-import styles from "../loginForm/style.module.scss";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../Input";
 import { useForm } from "react-hook-form";
 import { InputPassword } from "../InputPassword";
-import {loginFormSchema} from "./loginForm.schema"
+import { loginFormSchema } from "./loginForm.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { api } from "../../../services/API";
+import { toast } from "react-toastify";
 
-export const LoginForm = () => {
-  const { register, handleSubmit,formState: {errors} } = useForm({
+export const LoginForm = ({ setUser }) => {
+ 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(loginFormSchema),
   });
 
-const onSubmit=(e)=>{
-  console.log(e);
-}
-console.log(errors);
+  const onSubmit = (userData) => {    
+    userLogin(userData);
+  };
+
+  const navigate = useNavigate();
+
+  const userLogin = async (userData) => {
+    try {
+      const { data } = await api.post("/sessions", userData);     
+      setUser(data.user);
+      saveLocalStorage(data.token);
+      navigate("/dashboard")
+    } catch (error) {
+      toast.error("Ops!, algo deu errado");
+      
+    }
+  };
+
+  const saveLocalStorage=(data)=>{     
+    localStorage.setItem("@token" , JSON.stringify(data));
+  }
+
   return (
-    <form className={styles.form__container} onSubmit={handleSubmit(onSubmit)}>
-      <h2 className={styles.title}>Login</h2>
+    <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
+      <h2 className="title">Login</h2>
 
       <Input
         label={"Email"}
@@ -36,12 +60,14 @@ console.log(errors);
         {...register("password")}
       />
 
-      <button className={styles.button} type="submit" >Entrar</button>
-      <p className={`${styles.paragraph} ${styles.central}`}>
+      <button className="button" type="submit">
+        Entrar
+      </button>
+      <p className="paragraph central">
         Ainda não possui uma conta?
       </p>
       <Link to="/register">
-        <button className={styles.buttonDisable}> Cadastre-se</button>
+        <button className="buttonDisable"> Cadastre-se</button>
       </Link>
     </form>
   );
