@@ -5,7 +5,7 @@ import { Input } from "../Input";
 import { InputSelect } from "../InputSelect";
 import { registerFormSchema } from "./registerForm.schema";
 import { InputPassword } from "../InputPassword";
-import { api } from "../../../services/API";
+import { api } from "../../../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

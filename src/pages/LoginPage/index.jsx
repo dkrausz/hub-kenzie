@@ -1,5 +1,5 @@
 import styles from "../LoginPage/style.module.scss";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/Logo.svg";
 import { LoginForm } from "../../components/Forms/loginForm";
 
 export const LoginPage = ({setUser}) => {

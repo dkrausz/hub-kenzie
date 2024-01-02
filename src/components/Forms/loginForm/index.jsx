@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { InputPassword } from "../InputPassword";
 import { loginFormSchema } from "./loginForm.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "../../../services/API";
+import { api } from "../../../services/api";
 import { toast } from "react-toastify";
 
 export const LoginForm = ({ setUser }) => {

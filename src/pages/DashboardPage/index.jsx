@@ -7,10 +7,9 @@ export const DashboardPage = ({user ,userLogout }) => {
     <>
       <Header userLogout={userLogout} />
       <div className={styles.user__container}>
-        {/* <h1 className="title">Olá, {user.name}</h1>
-        <p className="paragraph">{user.course_module}</p> */}
-        <h1 className="title">Olá, Danilo</h1>
-        <p className="paragraph">Mosulo dea 1 </p>
+        <h1 className="title">Olá, {user.name}</h1>
+        <p className="paragraph">{user.course_module}</p>
+     
       </div>
       <div className={styles.main__container}>
         <div className={styles.main__contains}>
