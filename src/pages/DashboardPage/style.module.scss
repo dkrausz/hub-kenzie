@@ -4,7 +4,7 @@
   height: 7rem;
   display: flex;
   justify-content: space-between;
-
+    padding-inline: 4rem;
   align-items: center;
 }
 
@@ -19,6 +19,7 @@
   flex-direction: column;
   align-items: start;
   padding-block: 2rem;
+  padding-inline: 4rem;
 }
 
 @media (max-width: 475px) {
@@ -29,4 +30,5 @@
   .main__contains {
     padding-inline: 1rem;
   }
+ 
 }
