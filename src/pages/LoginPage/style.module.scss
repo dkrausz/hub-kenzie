@@ -1,17 +1,12 @@
 @import url(../../styles/index.scss);
 
-.container{
-    width: 23rem;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-
+.container {
+  width: 23rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
-.container>img{ 
-        
-        margin-inline: auto;
-        margin-block: 2.3rem;
-    }
-
-
-
+.container > img {
+  margin-inline: auto;
+  margin-block: 2.3rem;
+}

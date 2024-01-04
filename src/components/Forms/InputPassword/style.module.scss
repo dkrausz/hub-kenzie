@@ -23,22 +23,21 @@
   }
 }
 
-.input__password{
-    background-color: var(--color-gray-200);
-    color: var(--color-gray-100);
-    border: none;
-    border-radius: 0.25rem; 
-    height: 100%;   
-    width: 90%;
-    
-    &:focus-visible{
-        outline: none;
-        color: var(--color-gray-000);
-    }    
+.input__password {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-100);
+  border: none;
+  border-radius: 0.25rem;
+  height: 100%;
+  width: 90%;
 
+  &:focus-visible {
+    outline: none;
+    color: var(--color-gray-000);
+  }
 }
 
-.hidden__btn{
-    position: absolute;
-    right: 1rem;
+.hidden__btn {
+  position: absolute;
+  right: 1rem;
 }

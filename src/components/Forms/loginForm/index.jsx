@@ -8,7 +8,6 @@ import { api } from "../../../services/api";
 import { toast } from "react-toastify";
 
 export const LoginForm = ({ setUser }) => {
- 
   const {
     register,
     handleSubmit,
@@ -17,7 +16,7 @@ export const LoginForm = ({ setUser }) => {
     resolver: zodResolver(loginFormSchema),
   });
 
-  const onSubmit = (userData) => {    
+  const onSubmit = (userData) => {
     userLogin(userData);
   };
 
@@ -25,19 +24,18 @@ export const LoginForm = ({ setUser }) => {
 
   const userLogin = async (userData) => {
     try {
-      const { data } = await api.post("/sessions", userData);     
+      const { data } = await api.post("/sessions", userData);
       setUser(data.user);
       saveLocalStorage(data.token);
-      navigate("/dashboard")
+      navigate("/dashboard");
     } catch (error) {
       toast.error("Ops!, algo deu errado");
-      
     }
   };
 
-  const saveLocalStorage=(data)=>{     
-    localStorage.setItem("@token" , JSON.stringify(data));
-  }
+  const saveLocalStorage = (data) => {
+    localStorage.setItem("@token", JSON.stringify(data));
+  };
 
   return (
     <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
@@ -63,9 +61,7 @@ export const LoginForm = ({ setUser }) => {
       <button className="button" type="submit">
         Entrar
       </button>
-      <p className="paragraph central">
-        Ainda não possui uma conta?
-      </p>
+      <p className="paragraph central">Ainda não possui uma conta?</p>
       <Link to="/register">
         <button className="buttonDisable"> Cadastre-se</button>
       </Link>

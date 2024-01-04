@@ -9,7 +9,9 @@ export const Header = ({ userLogout }) => {
         <button
           className={`${styles.buttonDisable} ${styles.sm}`}
           onClick={userLogout}
-        >Sair</button>
+        >
+          Sair
+        </button>
       </div>
     </header>
   );

@@ -1,4 +1,3 @@
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
@@ -19,28 +18,24 @@ export const RegisterForm = () => {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const onSubmit = (userData) => {   
+  const onSubmit = (userData) => {
     userRegister(userData);
-
   };
-  
-const userRegister = async (userData)=>{
-  try{
-    const {data} = await api.post("/users",userData);    
-    toast.success("Conta criada com sucesso!",{autoClose:1500})
-    setTimeout(()=>navigate("/"),2000);
-  }catch(error){
-    toast.error("Ops!, Algo deu errado",{autoClose:3000});    
-  }
 
-}
+  const userRegister = async (userData) => {
+    try {
+      const { data } = await api.post("/users", userData);
+      toast.success("Conta criada com sucesso!", { autoClose: 1500 });
+      setTimeout(() => navigate("/"), 2000);
+    } catch (error) {
+      toast.error("Ops!, Algo deu errado", { autoClose: 3000 });
+    }
+  };
 
   return (
     <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
       <h2 className="title">Crie sua conta</h2>
-      <p className="paragraph central">
-        Rapido e grátis, vamos nessa
-      </p>
+      <p className="paragraph central">Rapido e grátis, vamos nessa</p>
 
       <Input
         label={"Nome"}
