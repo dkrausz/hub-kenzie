@@ -3,11 +3,15 @@ import { Input } from "../Input";
 import { useForm } from "react-hook-form";
 import { InputPassword } from "../InputPassword";
 import { loginFormSchema } from "./loginForm.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "../../../services/api";
-import { toast } from "react-toastify";
+import { zodResolver } from "@hookform/resolvers/zod";;
+import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
-export const LoginForm = ({ setUser }) => {
+
+export const LoginForm = () => {
+ 
+  const {userLogin} = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -19,23 +23,7 @@ export const LoginForm = ({ setUser }) => {
   const onSubmit = (userData) => {
     userLogin(userData);
   };
-
-  const navigate = useNavigate();
-
-  const userLogin = async (userData) => {
-    try {
-      const { data } = await api.post("/sessions", userData);
-      setUser(data.user);
-      saveLocalStorage(data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      toast.error("Ops!, algo deu errado");
-    }
-  };
-
-  const saveLocalStorage = (data) => {
-    localStorage.setItem("@token", JSON.stringify(data));
-  };
+  
 
   return (
     <form className="form__container" onSubmit={handleSubmit(onSubmit)}>

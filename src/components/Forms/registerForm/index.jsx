@@ -4,12 +4,12 @@ import { Input } from "../Input";
 import { InputSelect } from "../InputSelect";
 import { registerFormSchema } from "./registerForm.schema";
 import { InputPassword } from "../InputPassword";
-import { api } from "../../../services/api";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
-export const RegisterForm = () => {
-  const navigate = useNavigate();
+export const RegisterForm = () => {  
+  const {userRegister} = useContext(UserContext)
+
   const {
     register,
     handleSubmit,
@@ -20,16 +20,6 @@ export const RegisterForm = () => {
 
   const onSubmit = (userData) => {
     userRegister(userData);
-  };
-
-  const userRegister = async (userData) => {
-    try {
-      const { data } = await api.post("/users", userData);
-      toast.success("Conta criada com sucesso!", { autoClose: 1500 });
-      setTimeout(() => navigate("/"), 2000);
-    } catch (error) {
-      toast.error("Ops!, Algo deu errado", { autoClose: 3000 });
-    }
   };
 
   return (
