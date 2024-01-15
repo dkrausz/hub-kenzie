@@ -38,6 +38,7 @@ export const UserProvider = ({ children }) => {
       setTimeout(() => navigate("/"), 2000);
     } catch (error) {
       toast.error("Ops!, Algo deu errado", { autoClose: 3000 });
+      console.log(error);
     }
   };
 

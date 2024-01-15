@@ -3,7 +3,7 @@ import { RegisterPage } from "../pages/RegisterPage";
 import { LoginPage } from "../pages/LoginPage";
 import { DashboardPage } from "../pages/DashboardPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
-import { ProtectRouter } from "../components/ProtectRouter";
+import { ProtectRouter } from "./ProtectRouter";
 
 export const RoutesMain = () => {
   return (

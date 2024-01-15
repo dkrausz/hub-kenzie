@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Header } from "../../components/Header";
 import styles from "../DashboardPage/style.module.scss";
 import { UserContext } from "../../providers/UserContext";
+import { TechList } from "../../components/TechList";
+import { ModalNewTechForm } from "../../components/Forms/ModalNewTechForm";
 
 export const DashboardPage = () => {
 
@@ -15,13 +17,17 @@ export const DashboardPage = () => {
         <p className="paragraph">{user?.course_module}</p>
       </div>
       <div className={styles.main__container}>
-        <div className={styles.main__contains}>
-          <h1 className="title">Que pena! Estamos em desenvolvimento :(</h1>
-          <p className="paragraph white">
-            Nossa aplicação está em desenvolvimento, em breveteremos novidades
-          </p>
-        </div>
+       <TechList/>
       </div>
+
+      <ModalNewTechForm/>
     </>
   );
 };
+
+{/* <div className={styles.main__contains}>
+<h1 className="title">Que pena! Estamos em desenvolvimento :(</h1>
+<p className="paragraph white">
+  Nossa aplicação está em desenvolvimento, em breveteremos novidades
+</p>
+</div> */}

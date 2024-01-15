@@ -1,0 +1,18 @@
+.overlay{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal__container{
+    width: 23rem;
+    height: 23rem;
+    background-color: var(--color-gray-300);
+    border-radius: 0.25rem;
+}

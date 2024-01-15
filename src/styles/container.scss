@@ -15,3 +15,10 @@
 
 }
 
+.main__container{
+max-width: 90rem;
+margin: auto;
+padding-inline: 4rem;
+display: flex;
+flex-direction: column;
+}
