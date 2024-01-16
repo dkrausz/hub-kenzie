@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { TechItem } from "../TechItem";
 import styles from "../TechList/style.module.scss";
+import { TechContext } from "../../providers/TechContext";
 
 export const TechList = () => {
+  const {setRegisterModal} = useContext(TechContext);
   const techList = [
     {
       id: "55126701-18ac-40df-aab9-3a88657db446",
@@ -22,7 +25,7 @@ export const TechList = () => {
     <div className={` main__container`}>
       <div className={styles.main__contains}>
         <h2 className="title">Tecnologias</h2>
-        <button className={`buttonDisable ${styles.button__size} `}>+</button>
+        <button className={`buttonDisable ${styles.button__size} `} onClick={()=>setRegisterModal(true)}>+</button>
       </div>
       <div className={styles.container}>
         <ul className={styles.list__container}>

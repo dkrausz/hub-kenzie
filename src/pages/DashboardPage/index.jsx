@@ -4,10 +4,13 @@ import styles from "../DashboardPage/style.module.scss";
 import { UserContext } from "../../providers/UserContext";
 import { TechList } from "../../components/TechList";
 import { ModalNewTechForm } from "../../components/Forms/ModalNewTechForm";
+import { TechContext } from "../../providers/TechContext";
+
 
 export const DashboardPage = () => {
 
   const {user, userLogout} = useContext(UserContext);
+  const {registerModal} = useContext(TechContext);
 
   return (
     <>
@@ -20,14 +23,9 @@ export const DashboardPage = () => {
        <TechList/>
       </div>
 
-      <ModalNewTechForm/>
+      {registerModal ? (<ModalNewTechForm/>) : null}
+      
     </>
   );
 };
 
-{/* <div className={styles.main__contains}>
-<h1 className="title">Que pena! Estamos em desenvolvimento :(</h1>
-<p className="paragraph white">
-  Nossa aplicação está em desenvolvimento, em breveteremos novidades
-</p>
-</div> */}

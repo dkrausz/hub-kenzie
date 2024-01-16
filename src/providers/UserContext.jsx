@@ -52,7 +52,8 @@ export const UserProvider = ({ children }) => {
                 Authorization: `Bearer ${token}`,
             },
           });
-          setUser(data);         
+          setUser(data);   
+             
           navigate("/dashboard");
         } catch (error) {
             console.log(error);
