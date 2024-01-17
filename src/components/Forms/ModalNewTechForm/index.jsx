@@ -24,7 +24,7 @@ export const ModalNewTechForm = () => {
         <div className={styles.modal__contains}>
           <Input label="Nome" type="text" {...register("title")}/>
 
-          <InputTechSelect label="Selecione a Tecnologia" {...register("status")} />          
+          <InputTechSelect label="Selecionar Status" {...register("status")} />          
 
           <button className={`${styles.btn} button`} type="submit">Cadastrar Tecnologia</button>
         </div>

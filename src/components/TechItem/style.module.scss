@@ -16,3 +16,27 @@
     color: var(--color-gray-000);
  }
 }
+
+.imgs{
+  display: flex;
+  align-items: center;
+  gap:0.5rem
+}
+
+@media(max-width:475px){
+  .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-inline: 0.5rem;
+    
+  }
+
+.item__contains{
+  justify-content: space-between;
+  gap: 0;
+  width: 100%;
+  
+}
+
+}

@@ -24,3 +24,15 @@
     gap: 1rem;
     padding-block: 1.5rem;
 }
+
+@media(max-width:475px){
+    .container{
+   
+      padding-inline: 0.5rem;
+      
+    }
+
+    .list__container{
+        padding-block: 1rem;
+    }
+}

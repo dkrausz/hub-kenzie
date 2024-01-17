@@ -8,17 +8,22 @@
     padding-inline: 1.38rem;
 }
 
+
+
+.main__container{
+    max-width: 90rem;
+    margin: auto;
+    padding-inline: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
 @media(max-width:475px){
     .form__container{
         margin-inline: 0.5rem;
     }
-
+.main__container{
+    padding-inline: 1rem;
 }
 
-.main__container{
-max-width: 90rem;
-margin: auto;
-padding-inline: 4rem;
-display: flex;
-flex-direction: column;
 }
