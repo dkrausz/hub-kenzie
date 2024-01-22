@@ -9,8 +9,9 @@ export const TechProvider = ({ children }) => {
   const token = localStorage.getItem("@TOKEN");
   const [registerModal, setRegisterModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  const [techList, setTechList] = useState([]);
   const [techSelected, setTechSelected] = useState(null);
+  
+  const{techList , setTechList} = useContext(UserContext)  
 
   const techRegister = async (techData, reset) => {
     try {
@@ -70,21 +71,6 @@ export const TechProvider = ({ children }) => {
 
   };
 
-  useEffect(() => {
-    const loadTechs = async () => {
-      try {
-        const { data } = await api.get("/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-      
-        setTechList(data.techs);      
-      } catch (error) {}
-    };
-
-    loadTechs();
-  }, []);
 
   return (
     <TechContext.Provider
@@ -93,12 +79,12 @@ export const TechProvider = ({ children }) => {
         editTech,
         registerModal,
         setRegisterModal,
-        techList,
         delTech,
         editModal,
         techSelected,
         setEditModal,
-        openEditModal
+        openEditModal, 
+        techList,       
       }}
     >
       {children}

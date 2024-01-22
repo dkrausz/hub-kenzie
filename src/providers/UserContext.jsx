@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext({});
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {  
   const [user, setUser] = useState(null);
+  const [techList, setTechList] = useState([]);
 
   const navigate = useNavigate();
 
@@ -19,8 +20,9 @@ export const UserProvider = ({ children }) => {
   const userLogin = async (userData) => {
     try {
       const { data } = await api.post("/sessions", userData);
-      setUser(data.user);
-      saveLocalStorage(data.token);      
+      setUser(data.user);      
+      saveLocalStorage(data.token);  
+      setTechList(data.user.techs);    
       navigate("/dashboard");
     } catch (error) {
       toast.error("Ops!, algo deu errado");
@@ -44,8 +46,9 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {    
     const loadUser = async () => {       
-      const token = localStorage.getItem("@TOKEN");       
-      if (token) {
+      const token = localStorage.getItem("@TOKEN");      
+      
+      if (token) {        
         try {
           const { data } = await api.get("/profile/", {
             headers: {
@@ -53,7 +56,7 @@ export const UserProvider = ({ children }) => {
             },
           });
           setUser(data);   
-             
+          setTechList(data.techs);  
           navigate("/dashboard");
         } catch (error) {
             console.log(error);
@@ -65,7 +68,7 @@ export const UserProvider = ({ children }) => {
 }, []);
 
   return (
-    <UserContext.Provider value={{ userLogout, user, userLogin, userRegister }}>
+    <UserContext.Provider value={{ userLogout, user, userLogin, userRegister,techList,setTechList }}>
       {children}
     </UserContext.Provider>
   );

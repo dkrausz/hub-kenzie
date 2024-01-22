@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { TechItem } from "../TechItem";
 import styles from "../TechList/style.module.scss";
 import { TechContext } from "../../providers/TechContext";
+import { UserContext } from "../../providers/UserContext";
 
 export const TechList = () => {
-  const { techList, setRegisterModal } = useContext(TechContext);
+  const {techList, setRegisterModal } = useContext(TechContext); 
 
   return (
     <div className="main__container">
