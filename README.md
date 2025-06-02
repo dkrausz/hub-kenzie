@@ -1,4 +1,4 @@
-# 🔐 Kenzie Hub - Parte 1: Cadastro e Login
+# 🔐 Kenzie Hub - Cadastro e Login
 
 Este projeto foi desenvolvido como parte do curso da Kenzie Academy com o objetivo de consolidar os conhecimentos de formulários, rotas e integração com APIs em aplicações React.
 
